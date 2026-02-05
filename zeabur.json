@@ -1,0 +1,29 @@
+{
+  "services": [
+    {
+      "name": "backend",
+      "type": "node",
+      "path": "backend",
+      "build": {
+        "command": "npm install"
+      },
+      "run": {
+        "command": "npm start"
+      },
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "name": "frontend",
+      "type": "node",
+      "path": ".",
+      "build": {
+        "command": "npm install && npm run build"
+      },
+      "run": {
+        "command": "npx serve -s dist -l $PORT"
+      }
+    }
+  ]
+}
