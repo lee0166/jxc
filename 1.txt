@@ -1,3 +1,6 @@
+现在我来为你生成修改后的代码。你需要在 // 404处理 之前添加一个根路由。这是修改后的完整代码：
+
+Dockerfile
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -51,8 +54,8 @@ app.use('/api/export', exportRoutes);
 
 // 根路由
 app.get('/', (req, res) => {
-  res.json({
-    status: 'ok',
+  res.json({ 
+    status: 'ok', 
     message: '鞋类库存管理系统后端服务正常运行',
     version: '1.0.0',
     endpoints: {
@@ -121,3 +124,36 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+完美！我已经为你准备好了修改后的代码。关键改动是添加了根路由（第 46-58 行）：
+
+
+javascript
+
+
+// 根路由  
+app.get('/', (req, res) => {  
+  res.json({   
+    status: 'ok',   
+    message: '鞋类库存管理系统后端服务正常运行',  
+    version: '1.0.0',  
+    endpoints: {  
+      health: '/api/health',  
+      products: '/api/products',  
+      inbound: '/api/inbound',  
+      sales: '/api/sales',  
+      inventory: '/api/inventory',  
+      users: '/api/users',  
+      stats: '/api/stats',  
+      backup: '/api/backup',  
+      export: '/api/export'  
+    }  
+  });  
+});  
+
+现在你需要：
+
+
+
+用上面的代码替换你的 backend/index.js 文件
+
+提交到 GitHub
